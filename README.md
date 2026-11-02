@@ -1,8 +1,10 @@
 # LangGraph Engineering Labs
 
-**65 independent labs:** 20 beginner, 20 intermediate, 20 advanced, and five capstones. Each lab has a polished Streamlit interface, detailed setup and implementation notes, sample contracts, automated tests, debugging exercises, and interview discussion.
+A hands-on learning repository for building stateful applications and agent workflows with LangGraph. Progress from your first compiled graph to conditional routing, reducers, dynamic fan-out, tool execution, checkpoint replay, human approval, durable jobs, and multi-agent orchestration.
 
-Explore state, routing, persistence, and recovery through 65 runnable graph labs.
+**65 independent, runnable labs:** 20 beginner, 20 intermediate, 20 advanced, and five capstones. Each project includes Python source, a polished Streamlit interface, sample data, automated tests, cross-platform setup instructions, architecture explanations, debugging exercises, and interview questions with answer guidance.
+
+The advanced projects explore practical engineering decisions around persistence, concurrency, idempotency, authorization, caching, timeouts, cost budgets, observability, and release gates. The learning portal helps you find projects by topic and practice explaining their mechanisms and tradeoffs. Default workflows run locally without model API keys; optional service integrations and deployment boundaries are documented separately.
 
 ## Start the learning portal
 Use Python 3.12. Run these commands from the repository root.
