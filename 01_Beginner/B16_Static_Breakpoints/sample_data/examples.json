@@ -1,0 +1,37 @@
+[
+  {
+    "input": {
+      "thread": "a",
+      "action": "start",
+      "value": 3
+    },
+    "expected_fields": {
+      "value": 3,
+      "pending": [
+        "work"
+      ]
+    }
+  },
+  {
+    "input": {
+      "thread": "b",
+      "action": "start",
+      "value": 0
+    },
+    "expected_fields": {
+      "pending": [
+        "work"
+      ]
+    }
+  },
+  {
+    "input": {
+      "thread": "c",
+      "action": "start",
+      "value": 9
+    },
+    "expected_fields": {
+      "value": 9
+    }
+  }
+]

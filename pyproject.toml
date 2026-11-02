@@ -1,0 +1,15 @@
+[project]
+name="langgraph-engineering-labs"
+version="0.1.0"
+requires-python=">=3.12,<3.13"
+description="Executable LangGraph curriculum with interview practice"
+dependencies=["langgraph==1.1.10", "langchain-core==1.7.3", "langgraph-checkpoint-sqlite==3.0.3", "langsmith==0.14.16", "streamlit==1.55.0", "python-dotenv==1.2.2", "anyio==4.12.1"]
+[project.optional-dependencies]
+test=["pytest==9.0.2"]
+[build-system]
+requires=["setuptools>=68"]
+build-backend="setuptools.build_meta"
+[tool.setuptools]
+py-modules=["portal"]
+[tool.pytest.ini_options]
+addopts="--import-mode=importlib"

@@ -1,0 +1,32 @@
+[
+  {
+    "input": {
+      "value": 4
+    },
+    "expected_fields": {
+      "result": 9,
+      "edge_count": 3
+    }
+  },
+  {
+    "input": {
+      "value": 0
+    },
+    "expected_fields": {
+      "nodes": [
+        "__end__",
+        "__start__",
+        "double",
+        "offset"
+      ]
+    }
+  },
+  {
+    "input": {
+      "value": 7
+    },
+    "expected_fields": {
+      "result": 15
+    }
+  }
+]

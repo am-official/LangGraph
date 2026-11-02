@@ -1,0 +1,26 @@
+[
+  {
+    "input": {
+      "content": "one"
+    },
+    "expected_fields": {
+      "verified": true
+    }
+  },
+  {
+    "input": {
+      "content": "two"
+    },
+    "expected_fields": {
+      "verified": true
+    }
+  },
+  {
+    "input": {
+      "content": "你好"
+    },
+    "expected_fields": {
+      "verified": true
+    }
+  }
+]

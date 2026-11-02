@@ -1,0 +1,37 @@
+[
+  {
+    "input": {
+      "fail": true,
+      "value": "one"
+    },
+    "expected_fields": {
+      "status": "failed",
+      "events": [
+        {
+          "prepare": {
+            "prepared": "ONE"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "fail": false,
+      "value": "two"
+    },
+    "expected_fields": {
+      "status": "success",
+      "error": null
+    }
+  },
+  {
+    "input": {
+      "fail": true,
+      "value": "three"
+    },
+    "expected_fields": {
+      "has_partial_evidence": true
+    }
+  }
+]

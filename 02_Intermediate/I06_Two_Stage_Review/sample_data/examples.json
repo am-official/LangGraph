@@ -1,0 +1,33 @@
+[
+  {
+    "input": {
+      "request": "Release",
+      "first": "approve",
+      "second": "approve"
+    },
+    "expected_fields": {
+      "approved": true,
+      "observed_pauses": 2
+    }
+  },
+  {
+    "input": {
+      "request": "Release",
+      "first": "approve",
+      "second": "reject"
+    },
+    "expected_fields": {
+      "approved": false
+    }
+  },
+  {
+    "input": {
+      "request": "Release",
+      "first": "reject",
+      "second": "approve"
+    },
+    "expected_fields": {
+      "approved": false
+    }
+  }
+]

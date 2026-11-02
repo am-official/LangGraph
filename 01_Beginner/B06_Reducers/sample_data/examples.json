@@ -1,0 +1,36 @@
+[
+  {
+    "input": {
+      "seed": "a",
+      "finding": "b"
+    },
+    "expected_fields": {
+      "findings": [
+        "a",
+        "b"
+      ],
+      "count": 2
+    }
+  },
+  {
+    "input": {
+      "seed": "same",
+      "finding": "same"
+    },
+    "expected_fields": {
+      "findings": [
+        "same",
+        "same"
+      ]
+    }
+  },
+  {
+    "input": {
+      "seed": "first",
+      "finding": "last"
+    },
+    "expected_fields": {
+      "count": 2
+    }
+  }
+]

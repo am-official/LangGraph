@@ -1,0 +1,8 @@
+langgraph==1.1.10
+langchain-core==1.7.3
+langgraph-checkpoint-sqlite==3.0.3
+langsmith==0.14.16
+streamlit==1.55.0
+python-dotenv==1.2.2
+pytest==9.0.2
+anyio==4.12.1

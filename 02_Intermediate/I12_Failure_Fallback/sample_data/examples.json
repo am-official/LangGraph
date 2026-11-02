@@ -1,0 +1,31 @@
+[
+  {
+    "input": {
+      "primary_available": false,
+      "request": "hello"
+    },
+    "expected_fields": {
+      "path": "fallback",
+      "error": "Primary unavailable"
+    }
+  },
+  {
+    "input": {
+      "primary_available": true,
+      "request": "hello"
+    },
+    "expected_fields": {
+      "path": "primary",
+      "answer": "Primary: hello"
+    }
+  },
+  {
+    "input": {
+      "primary_available": false,
+      "request": "tools"
+    },
+    "expected_fields": {
+      "path": "fallback"
+    }
+  }
+]

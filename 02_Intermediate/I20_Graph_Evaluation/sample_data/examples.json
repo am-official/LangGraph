@@ -1,0 +1,43 @@
+[
+  {
+    "input": {
+      "cases": [
+        {
+          "request": "refund",
+          "expected": "billing"
+        }
+      ]
+    },
+    "expected_fields": {
+      "accuracy": 1.0,
+      "failures": 0
+    }
+  },
+  {
+    "input": {
+      "cases": [
+        {
+          "request": "crash",
+          "expected": "billing"
+        }
+      ]
+    },
+    "expected_fields": {
+      "accuracy": 0.0,
+      "failures": 1
+    }
+  },
+  {
+    "input": {
+      "cases": [
+        {
+          "request": "hello",
+          "expected": "technical"
+        }
+      ]
+    },
+    "expected_fields": {
+      "accuracy": 1.0
+    }
+  }
+]

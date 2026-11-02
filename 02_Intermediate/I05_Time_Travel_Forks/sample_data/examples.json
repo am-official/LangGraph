@@ -1,0 +1,43 @@
+[
+  {
+    "input": {
+      "initial": 2,
+      "branch_a": 10,
+      "branch_b": 30
+    },
+    "expected_fields": {
+      "original": 5,
+      "branches": [
+        11,
+        31
+      ],
+      "saved_origin": 4
+    }
+  },
+  {
+    "input": {
+      "initial": 0,
+      "branch_a": 0,
+      "branch_b": 1
+    },
+    "expected_fields": {
+      "branches": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "input": {
+      "initial": 4,
+      "branch_a": 2,
+      "branch_b": 2
+    },
+    "expected_fields": {
+      "branches": [
+        3,
+        3
+      ]
+    }
+  }
+]

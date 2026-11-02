@@ -1,0 +1,30 @@
+[
+  {
+    "input": {
+      "value": 4,
+      "factor": 3
+    },
+    "expected_fields": {
+      "answer": 12,
+      "context_in_state": false
+    }
+  },
+  {
+    "input": {
+      "value": 0,
+      "factor": 5
+    },
+    "expected_fields": {
+      "answer": 0
+    }
+  },
+  {
+    "input": {
+      "value": 7,
+      "factor": 2
+    },
+    "expected_fields": {
+      "answer": 14
+    }
+  }
+]

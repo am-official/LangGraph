@@ -1,0 +1,32 @@
+[
+  {
+    "input": {
+      "schema_version": 1,
+      "count": 3
+    },
+    "expected_fields": {
+      "schema_version": 2,
+      "count": 30,
+      "idempotent": true
+    }
+  },
+  {
+    "input": {
+      "schema_version": 2,
+      "count": 30
+    },
+    "expected_fields": {
+      "migrated": false,
+      "count": 30
+    }
+  },
+  {
+    "input": {
+      "schema_version": 1,
+      "count": 0
+    },
+    "expected_fields": {
+      "second_count": 0
+    }
+  }
+]

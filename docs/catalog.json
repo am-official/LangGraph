@@ -1,0 +1,1472 @@
+[
+  {
+    "code": "B01",
+    "path": "01_Beginner/B01_Hello_Graph",
+    "level": "Beginner",
+    "title": "Your first graph",
+    "description": "Build one node, connect it to the graph boundary, and inspect its state update.",
+    "concept": "StateGraph compilation and invocation",
+    "tradeoff": "Why is graph construction separate from graph execution?",
+    "example": {
+      "input": {
+        "name": "Ada"
+      },
+      "expected_fields": {
+        "answer": "Hello, Ada!"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B02",
+    "path": "01_Beginner/B02_Typed_State",
+    "level": "Beginner",
+    "title": "A state contract",
+    "description": "Inspect declared fields and observe which state values a node updates.",
+    "concept": "typed state versus runtime validation",
+    "tradeoff": "TypedDict documents a contract but does not validate every value at runtime. Where should validation occur?",
+    "example": {
+      "input": {
+        "quantity": 3,
+        "price": 4.5
+      },
+      "expected_fields": {
+        "total": 13.5
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B03",
+    "path": "01_Beginner/B03_Partial_Updates",
+    "level": "Beginner",
+    "title": "Update only what changes",
+    "description": "Apply a partial state update and verify that unrelated fields survive.",
+    "concept": "partial node state updates",
+    "tradeoff": "Why return only changed fields instead of rebuilding all state in every node?",
+    "example": {
+      "input": {
+        "title": "note",
+        "owner": "Ada"
+      },
+      "expected_fields": {
+        "normalized": "NOTE",
+        "owner": "Ada"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B04",
+    "path": "01_Beginner/B04_Sequential_Nodes",
+    "level": "Beginner",
+    "title": "A pipeline with clear stages",
+    "description": "Normalize a document, tokenize it, then compute a word count through three graph nodes.",
+    "concept": "explicit sequential dependencies",
+    "tradeoff": "What can go wrong if a consumer runs before the node producing its input?",
+    "example": {
+      "input": {
+        "document": "one two"
+      },
+      "expected_fields": {
+        "words": 2,
+        "tokens": [
+          "one",
+          "two"
+        ]
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B05",
+    "path": "01_Beginner/B05_Conditional_Routing",
+    "level": "Beginner",
+    "title": "Route by policy",
+    "description": "Choose a billing or technical path using a deterministic routing node.",
+    "concept": "conditional edges and routing invariants",
+    "tradeoff": "How do explicit routes differ from an unrestricted model selecting side effects?",
+    "example": {
+      "input": {
+        "request": "Refund please"
+      },
+      "expected_fields": {
+        "route": "billing"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B06",
+    "path": "01_Beginner/B06_Reducers",
+    "level": "Beginner",
+    "title": "Merge updates deliberately",
+    "description": "Append findings with a list reducer and compare the result with overwrite semantics.",
+    "concept": "Annotated reducers and accumulation",
+    "tradeoff": "When should repeated updates append, replace, deduplicate, or reject?",
+    "example": {
+      "input": {
+        "seed": "a",
+        "finding": "b"
+      },
+      "expected_fields": {
+        "findings": [
+          "a",
+          "b"
+        ],
+        "count": 2
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B07",
+    "path": "01_Beginner/B07_Message_State",
+    "level": "Beginner",
+    "title": "Messages with identity",
+    "description": "Use add_messages to preserve role and message identity through a graph.",
+    "concept": "add_messages and message roles",
+    "tradeoff": "Why does message identity matter when editing conversation state?",
+    "example": {
+      "input": {
+        "message": "hello"
+      },
+      "expected_fields": {
+        "count": 2
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B08",
+    "path": "01_Beginner/B08_Tools_As_Nodes",
+    "level": "Beginner",
+    "title": "A bounded tool node",
+    "description": "Run an allowlisted word-count tool inside an explicit graph, without executing supplied source code.",
+    "concept": "tool schemas and controlled graph execution",
+    "tradeoff": "Does wrapping a function as a tool provide authorization or resource isolation by itself?",
+    "example": {
+      "input": {
+        "text": "one two"
+      },
+      "expected_fields": {
+        "words": 2
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B09",
+    "path": "01_Beginner/B09_Bounded_Loops",
+    "level": "Beginner",
+    "title": "Repeat with a stopping rule",
+    "description": "Execute a graph loop until the count reaches a validated target.",
+    "concept": "graph loops and termination",
+    "tradeoff": "Why validate a business stopping condition as well as setting a recursion limit?",
+    "example": {
+      "input": {
+        "target": 1
+      },
+      "expected_fields": {
+        "count": 1
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B10",
+    "path": "01_Beginner/B10_Update_Streaming",
+    "level": "Beginner",
+    "title": "Read node updates",
+    "description": "Inspect the updates stream as each graph node returns a state delta.",
+    "concept": "updates stream deltas",
+    "tradeoff": "How do node updates differ from snapshots of the entire state?",
+    "example": {
+      "input": {
+        "value": 3
+      },
+      "expected_fields": {
+        "events": [
+          {
+            "double": {
+              "value": 6
+            }
+          },
+          {
+            "offset": {
+              "value": 7
+            }
+          }
+        ],
+        "answer": "7"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B11",
+    "path": "01_Beginner/B11_Value_Streaming",
+    "level": "Beginner",
+    "title": "Read evolving state",
+    "description": "Inspect the values stream, including initial state and the snapshots after each update.",
+    "concept": "values stream snapshots",
+    "tradeoff": "What does collecting a stream into a list lose compared with rendering events as they arrive?",
+    "example": {
+      "input": {
+        "value": 3
+      },
+      "expected_fields": {
+        "snapshots": [
+          {
+            "value": 3
+          },
+          {
+            "value": 6
+          },
+          {
+            "value": 7
+          }
+        ],
+        "snapshot_count": 3
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B12",
+    "path": "01_Beginner/B12_Graph_Visualization",
+    "level": "Beginner",
+    "title": "Architecture you can inspect",
+    "description": "Export graph structure as Mermaid and Graphviz while running the same compiled workflow.",
+    "concept": "compiled graph inspection",
+    "tradeoff": "Why is a graph diagram evidence of structure but not evidence of successful deployment?",
+    "example": {
+      "input": {
+        "value": 4
+      },
+      "expected_fields": {
+        "result": 9,
+        "edge_count": 3
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B13",
+    "path": "01_Beginner/B13_Memory_Checkpoints",
+    "level": "Beginner",
+    "title": "The last state is available",
+    "description": "Save a graph state in an in-memory checkpointer and read it by thread ID.",
+    "concept": "checkpointer and thread configuration",
+    "tradeoff": "What failure destroys an in-memory checkpoint even when a thread ID is stable?",
+    "example": {
+      "input": {
+        "initial": 2
+      },
+      "expected_fields": {
+        "count": 3,
+        "saved_count": 3,
+        "has_checkpoint": true
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B14",
+    "path": "01_Beginner/B14_Thread_Isolation",
+    "level": "Beginner",
+    "title": "Two threads, separate histories",
+    "description": "Write two states to one checkpointer and verify that thread IDs select the intended checkpoint.",
+    "concept": "thread-scoped checkpoint lookup",
+    "tradeoff": "Why is a thread ID an address for state rather than proof of authorization?",
+    "example": {
+      "input": {
+        "first": 2,
+        "second": 8
+      },
+      "expected_fields": {
+        "first": 3,
+        "second": 9
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B15",
+    "path": "01_Beginner/B15_SQLite_Checkpoints",
+    "level": "Beginner",
+    "title": "Checkpoints on disk",
+    "description": "Write a graph checkpoint to SQLite and read it through a newly opened saver connection.",
+    "concept": "SQLite checkpoint durability",
+    "tradeoff": "Which failures can one local SQLite file survive, and which need backups or replication?",
+    "example": {
+      "input": {
+        "thread": "a",
+        "initial": 4
+      },
+      "expected_fields": {
+        "count": 5,
+        "reopened_count": 5
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B16",
+    "path": "01_Beginner/B16_Static_Breakpoints",
+    "level": "Beginner",
+    "title": "Stop before the node",
+    "description": "Persist a static breakpoint, inspect pending work, and continue on the same thread.",
+    "concept": "static interrupt_before checkpoints",
+    "tradeoff": "How does resuming a static breakpoint differ from supplying a dynamic interrupt decision?",
+    "example": {
+      "input": {
+        "thread": "a",
+        "action": "start",
+        "value": 3
+      },
+      "expected_fields": {
+        "value": 3,
+        "pending": [
+          "work"
+        ]
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B17",
+    "path": "01_Beginner/B17_Dynamic_Interrupts",
+    "level": "Beginner",
+    "title": "Ask before proceeding",
+    "description": "Pause with a review payload and resume with an explicit decision, retaining the original request.",
+    "concept": "interrupt payload and Command resume",
+    "tradeoff": "Which parts of a node may execute again after resume, and where should side effects be placed?",
+    "example": {
+      "input": {
+        "thread": "a",
+        "action": "submit",
+        "request": "Draft A"
+      },
+      "expected_fields": {
+        "pending": true,
+        "approved": false
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B18",
+    "path": "01_Beginner/B18_Command_Routing",
+    "level": "Beginner",
+    "title": "Update and route together",
+    "description": "Use Command to update the route field and choose the next graph node.",
+    "concept": "Command update and goto",
+    "tradeoff": "Why should destination names and return annotations agree?",
+    "example": {
+      "input": {
+        "message": "hello"
+      },
+      "expected_fields": {
+        "route": "short"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B19",
+    "path": "01_Beginner/B19_Subgraphs",
+    "level": "Beginner",
+    "title": "A graph inside a graph",
+    "description": "Compose a reusable normalization graph as a node in a parent workflow.",
+    "concept": "compiled subgraph composition",
+    "tradeoff": "When should child and parent share a state schema, and when is an adapter preferable?",
+    "example": {
+      "input": {
+        "text": " one   two "
+      },
+      "expected_fields": {
+        "normalized": "one two",
+        "answer": "ONE TWO"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "B20",
+    "path": "01_Beginner/B20_Runtime_Context",
+    "level": "Beginner",
+    "title": "Configuration outside state",
+    "description": "Inject a trusted multiplier through Runtime context rather than copying it into mutable graph state.",
+    "concept": "Runtime context versus mutable state",
+    "tradeoff": "Why should authorization context come from a trusted caller rather than user-supplied state?",
+    "example": {
+      "input": {
+        "value": 4,
+        "factor": 3
+      },
+      "expected_fields": {
+        "answer": 12,
+        "context_in_state": false
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I01",
+    "path": "02_Intermediate/I01_Fanout_Join",
+    "level": "Intermediate",
+    "title": "Two branches, one result",
+    "description": "Run independent analysis branches with a reducer and join before composing the result.",
+    "concept": "parallel branches and explicit join",
+    "tradeoff": "Why is a reducer necessary for concurrent findings updates?",
+    "example": {
+      "input": {
+        "document": "one two"
+      },
+      "expected_fields": {
+        "answer": "characters=7, words=2",
+        "branches": 2
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I02",
+    "path": "02_Intermediate/I02_Send_Map_Reduce",
+    "level": "Intermediate",
+    "title": "Map a changing workload",
+    "description": "Fan out a dynamic list of values with Send, then reduce the results deterministically.",
+    "concept": "dynamic Send fan-out and reduction",
+    "tradeoff": "How would you preserve stable output ordering when task completion order is nondeterministic?",
+    "example": {
+      "input": {
+        "values": [
+          1,
+          2,
+          3
+        ]
+      },
+      "expected_fields": {
+        "total": 14,
+        "squares": [
+          {
+            "index": 0,
+            "square": 1
+          },
+          {
+            "index": 1,
+            "square": 4
+          },
+          {
+            "index": 2,
+            "square": 9
+          }
+        ]
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I03",
+    "path": "02_Intermediate/I03_Checkpoint_Replay",
+    "level": "Intermediate",
+    "title": "Replay from a known point",
+    "description": "Find an intermediate checkpoint and replay the remaining graph steps from its saved configuration.",
+    "concept": "checkpoint history and replay configuration",
+    "tradeoff": "Which operations may run again during replay, and why do external effects need idempotency?",
+    "example": {
+      "input": {
+        "value": 3
+      },
+      "expected_fields": {
+        "original": 7,
+        "checkpoint_value": 6,
+        "replayed": 7
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I04",
+    "path": "02_Intermediate/I04_State_Editing",
+    "level": "Intermediate",
+    "title": "Edit a saved state",
+    "description": "Update an intermediate checkpoint as a named node, then execute the remaining step.",
+    "concept": "update_state with as_node",
+    "tradeoff": "Why does the node attribution influence which steps run after a state edit?",
+    "example": {
+      "input": {
+        "value": 3,
+        "edited": 20
+      },
+      "expected_fields": {
+        "before_edit": 6,
+        "result": 21,
+        "original_snapshot_unchanged": true
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I05",
+    "path": "02_Intermediate/I05_Time_Travel_Forks",
+    "level": "Intermediate",
+    "title": "Compare two futures",
+    "description": "Create two forks from one intermediate checkpoint and compare their outcomes without changing the original snapshot.",
+    "concept": "branching from immutable checkpoint history",
+    "tradeoff": "How would you distinguish exploratory forks from the production thread that may perform side effects?",
+    "example": {
+      "input": {
+        "initial": 2,
+        "branch_a": 10,
+        "branch_b": 30
+      },
+      "expected_fields": {
+        "original": 5,
+        "branches": [
+          11,
+          31
+        ],
+        "saved_origin": 4
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I06",
+    "path": "02_Intermediate/I06_Two_Stage_Review",
+    "level": "Intermediate",
+    "title": "Two decisions, one policy",
+    "description": "Pause twice on separate review nodes and accept only when both decisions approve.",
+    "concept": "separate interrupt stages and composite approval",
+    "tradeoff": "When should rejection short-circuit later reviewers rather than collecting all decisions?",
+    "example": {
+      "input": {
+        "request": "Release",
+        "first": "approve",
+        "second": "approve"
+      },
+      "expected_fields": {
+        "approved": true,
+        "observed_pauses": 2
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I07",
+    "path": "02_Intermediate/I07_Namespaced_Store",
+    "level": "Intermediate",
+    "title": "Memory beyond one thread",
+    "description": "Store preferences under separate namespaces with the LangGraph store interface.",
+    "concept": "InMemoryStore namespaces",
+    "tradeoff": "What trusted information should determine a namespace in a multi-tenant application?",
+    "example": {
+      "input": {
+        "tenant": "a",
+        "user": "ada",
+        "preference": "brief"
+      },
+      "expected_fields": {
+        "value": "brief",
+        "foreign_namespace_missing": true,
+        "items": 1
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I08",
+    "path": "02_Intermediate/I08_Validated_State",
+    "level": "Intermediate",
+    "title": "Validate before orchestration",
+    "description": "Enforce a Pydantic input boundary before creating and executing the graph.",
+    "concept": "Pydantic validation at the graph boundary",
+    "tradeoff": "Why is a TypedDict annotation insufficient for hostile external input?",
+    "example": {
+      "input": {
+        "quantity": 3,
+        "unit_price": 2.5
+      },
+      "expected_fields": {
+        "total": 7.5
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I09",
+    "path": "02_Intermediate/I09_Async_Branches",
+    "level": "Intermediate",
+    "title": "Async work without shared mutation",
+    "description": "Run asynchronous graph branches and merge their independent results.",
+    "concept": "ainvoke and asynchronous node boundaries",
+    "tradeoff": "Why does async execution not make CPU-bound work automatically faster?",
+    "example": {
+      "input": {
+        "text": "abc"
+      },
+      "expected_fields": {
+        "results": [
+          "reverse:cba",
+          "upper:ABC"
+        ]
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I10",
+    "path": "02_Intermediate/I10_Retry_Policy",
+    "level": "Intermediate",
+    "title": "Retry the right failure",
+    "description": "Inject transient failures and let a bounded graph RetryPolicy recover.",
+    "concept": "RetryPolicy and transient errors",
+    "tradeoff": "Why can retries duplicate an external side effect even if the final graph state looks correct?",
+    "example": {
+      "input": {
+        "failures": 0,
+        "value": "one"
+      },
+      "expected_fields": {
+        "attempts": 1,
+        "answer": "ONE"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I11",
+    "path": "02_Intermediate/I11_Idempotent_Effects",
+    "level": "Intermediate",
+    "title": "One operation, one receipt",
+    "description": "Use a unique operation key and verify repeated graph execution does not duplicate a stored effect.",
+    "concept": "idempotency keys and stored receipts",
+    "tradeoff": "How should the system respond when one idempotency key is reused for different input?",
+    "example": {
+      "input": {
+        "operation": "a",
+        "value": "one"
+      },
+      "expected_fields": {
+        "same_receipt": true,
+        "second_created": false
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I12",
+    "path": "02_Intermediate/I12_Failure_Fallback",
+    "level": "Intermediate",
+    "title": "An explicit fallback path",
+    "description": "Route a failed primary operation to a declared fallback while preserving the failure reason.",
+    "concept": "fallback routing without hiding failure",
+    "tradeoff": "When would returning stale fallback guidance be worse than failing the request?",
+    "example": {
+      "input": {
+        "primary_available": false,
+        "request": "hello"
+      },
+      "expected_fields": {
+        "path": "fallback",
+        "error": "Primary unavailable"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I13",
+    "path": "02_Intermediate/I13_Tool_Call_Graph",
+    "level": "Intermediate",
+    "title": "A visible tool-call protocol",
+    "description": "Create a model-style tool call, execute it with ToolNode, and route back to a response node.",
+    "concept": "ToolNode and tools_condition loop",
+    "tradeoff": "Which part is deterministic protocol scaffolding here, and what would a live model add?",
+    "example": {
+      "input": {
+        "text": "one two"
+      },
+      "expected_fields": {
+        "answer": "Word count: 2",
+        "tool_messages": 1
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I14",
+    "path": "02_Intermediate/I14_Tool_Validation",
+    "level": "Intermediate",
+    "title": "Validate before invoking tools",
+    "description": "Reject unapproved names and malformed arguments before a real ToolNode sees a request.",
+    "concept": "tool allowlists and argument validation",
+    "tradeoff": "Why should tool selection and tool authorization be separate checks?",
+    "example": {
+      "input": {
+        "tool_name": "count_words",
+        "content": "a b"
+      },
+      "expected_fields": {
+        "word_count": 2,
+        "validated": true
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I15",
+    "path": "02_Intermediate/I15_Message_Replacement",
+    "level": "Intermediate",
+    "title": "Edit without duplicating turns",
+    "description": "Use message IDs to replace one turn and remove another while retaining reducer semantics.",
+    "concept": "message replacement and RemoveMessage",
+    "tradeoff": "Why can blind list concatenation duplicate edited assistant turns?",
+    "example": {
+      "input": {
+        "original": "draft",
+        "replacement": "final"
+      },
+      "expected_fields": {
+        "revised_count": 2,
+        "replaced_content": "final",
+        "remaining_ids": [
+          "reply"
+        ],
+        "remaining_count": 1
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I16",
+    "path": "02_Intermediate/I16_Handoffs",
+    "level": "Intermediate",
+    "title": "A scoped specialist handoff",
+    "description": "Use Command to hand a validated task to a named specialist and keep the handoff reason in state.",
+    "concept": "explicit specialist handoffs",
+    "tradeoff": "What context should be transferred to a specialist, and what should remain private?",
+    "example": {
+      "input": {
+        "request": "refund please"
+      },
+      "expected_fields": {
+        "specialist": "billing"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I17",
+    "path": "02_Intermediate/I17_Retrieval_Graph",
+    "level": "Intermediate",
+    "title": "Ground the response",
+    "description": "Retrieve lexical evidence in one node, then compose a cited extractive response or abstain.",
+    "concept": "retrieval, provenance, and abstention",
+    "tradeoff": "Why do source relevance, factual truth, and generated-answer correctness require different evaluation?",
+    "example": {
+      "input": {
+        "question": "tools",
+        "documents": [
+          "Agents use tools."
+        ]
+      },
+      "expected_fields": {
+        "sources": [
+          "doc-1"
+        ],
+        "answer": "[doc-1] Agents use tools."
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I18",
+    "path": "02_Intermediate/I18_Plan_Execute",
+    "level": "Intermediate",
+    "title": "Execute an explicit plan",
+    "description": "Validate a plan of allowlisted transformations, execute one step per graph loop, and record progress.",
+    "concept": "bounded plan execution",
+    "tradeoff": "Why must a model-produced plan be validated independently before tool execution?",
+    "example": {
+      "input": {
+        "value": "abc",
+        "plan": [
+          "upper",
+          "reverse"
+        ]
+      },
+      "expected_fields": {
+        "value": "CBA",
+        "cursor": 2,
+        "executed": [
+          "upper",
+          "reverse"
+        ]
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I19",
+    "path": "02_Intermediate/I19_Context_Compaction",
+    "level": "Intermediate",
+    "title": "Keep a bounded context",
+    "description": "Select recent messages within a character budget and keep a trusted policy outside history.",
+    "concept": "bounded context and role boundaries",
+    "tradeoff": "When does truncation require requesting shorter input rather than claiming the context was summarized?",
+    "example": {
+      "input": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "hello"
+          }
+        ],
+        "budget": 10
+      },
+      "expected_fields": {
+        "used_characters": 5,
+        "dropped": 0
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "I20",
+    "path": "02_Intermediate/I20_Graph_Evaluation",
+    "level": "Intermediate",
+    "title": "Test behavior, not topology alone",
+    "description": "Evaluate a routing graph against labeled cases and inspect per-example failures.",
+    "concept": "behavioral evaluation for graph workflows",
+    "tradeoff": "Which failures can remain invisible if you test only whether a graph compiles?",
+    "example": {
+      "input": {
+        "cases": [
+          {
+            "request": "refund",
+            "expected": "billing"
+          }
+        ]
+      },
+      "expected_fields": {
+        "accuracy": 1.0,
+        "failures": 0
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A01",
+    "path": "03_Advanced/A01_Durable_Jobs",
+    "level": "Advanced",
+    "title": "A job that resumes",
+    "description": "Persist work between graph steps and advance a batch one unit at a time.",
+    "concept": "durable stepwise execution",
+    "tradeoff": "How do stable job IDs and replay-safe units make restart recovery possible?",
+    "example": {
+      "input": {
+        "job": "a",
+        "action": "start",
+        "work": [
+          "one",
+          "two"
+        ]
+      },
+      "expected_fields": {
+        "cursor": 0,
+        "pending": true
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A02",
+    "path": "03_Advanced/A02_Payload_Migration",
+    "level": "Advanced",
+    "title": "Evolve persisted application state",
+    "description": "Migrate an application payload inside a graph with explicit version checks and idempotent transformations.",
+    "concept": "versioned payload migration",
+    "tradeoff": "Why must application-state migration be distinguished from serializer and dependency compatibility?",
+    "example": {
+      "input": {
+        "schema_version": 1,
+        "count": 3
+      },
+      "expected_fields": {
+        "schema_version": 2,
+        "count": 30,
+        "idempotent": true
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A03",
+    "path": "03_Advanced/A03_Durable_Preferences",
+    "level": "Advanced",
+    "title": "A durable memory namespace",
+    "description": "Use a graph to save or read tenant-scoped preferences through transactional SQLite storage.",
+    "concept": "durable namespaced memory and SQL parameters",
+    "tradeoff": "Why is a correctly scoped storage key not a substitute for verifying the requesting tenant?",
+    "example": {
+      "input": {
+        "tenant": "a",
+        "user": "u",
+        "action": "save",
+        "preference": "brief"
+      },
+      "expected_fields": {
+        "stored": "brief",
+        "found": true
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A04",
+    "path": "03_Advanced/A04_Optimistic_Concurrency",
+    "level": "Advanced",
+    "title": "Reject a lost update",
+    "description": "Update a record only when the caller holds the current version, using an immediate SQLite transaction.",
+    "concept": "optimistic version checks",
+    "tradeoff": "When should a client retry automatically, and when must it reconcile the conflicting edit?",
+    "example": {
+      "input": {
+        "key": "a",
+        "value": "first",
+        "expected_version": 0
+      },
+      "expected_fields": {
+        "version": 1
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A05",
+    "path": "03_Advanced/A05_Transactional_Outbox",
+    "level": "Advanced",
+    "title": "Record intent before dispatch",
+    "description": "Commit a local outbox item and dispatch it exactly once to a local receipt ledger.",
+    "concept": "transactional outbox and idempotent dispatch",
+    "tradeoff": "Why does local exactly-once recording not automatically guarantee exactly-once delivery to an external provider?",
+    "example": {
+      "input": {
+        "operation": "a",
+        "payload": "one"
+      },
+      "expected_fields": {
+        "same_receipt": true,
+        "external_notification_sent": false
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A06",
+    "path": "03_Advanced/A06_Authorized_Review",
+    "level": "Advanced",
+    "title": "Approval needs permission",
+    "description": "Require an eligible reviewer role before resuming a protected graph interrupt.",
+    "concept": "authorization before interrupt resume",
+    "tradeoff": "Why is an approve button insufficient without server-side identity and resource authorization?",
+    "example": {
+      "input": {
+        "request": "Publish",
+        "reviewer_role": "viewer",
+        "decision": "approve"
+      },
+      "expected_fields": {
+        "authorized": false,
+        "approved": false,
+        "pending": true
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A07",
+    "path": "03_Advanced/A07_Async_Timeouts",
+    "level": "Advanced",
+    "title": "A timeout is an outcome",
+    "description": "Bound an async operation with wait_for and record a timeout without pretending it succeeded.",
+    "concept": "async cancellation and timeout reporting",
+    "tradeoff": "What happens if the underlying library ignores cancellation or performs a side effect before timeout?",
+    "example": {
+      "input": {
+        "delay_ms": 0,
+        "timeout_ms": 50
+      },
+      "expected_fields": {
+        "status": "success"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A08",
+    "path": "03_Advanced/A08_Node_Caching",
+    "level": "Advanced",
+    "title": "Cache the right state",
+    "description": "Cache a pure node by its complete input and verify identical inputs avoid repeated execution.",
+    "concept": "CachePolicy and pure-node input keys",
+    "tradeoff": "What authorization or freshness bug appears when a tenant or data version is omitted from a cache key?",
+    "example": {
+      "input": {
+        "value": "hello"
+      },
+      "expected_fields": {
+        "answer": "HELLO",
+        "node_calls": 1,
+        "same_output": true
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A09",
+    "path": "03_Advanced/A09_Recursion_Budgets",
+    "level": "Advanced",
+    "title": "Stop an overlong graph",
+    "description": "Compare successful termination with GraphRecursionError when a graph exceeds its configured step budget.",
+    "concept": "GraphRecursionError as a resource guard",
+    "tradeoff": "Why does a graph step limit not replace a wall-clock timeout, token budget, or tool authorization?",
+    "example": {
+      "input": {
+        "target": 2,
+        "budget": 10
+      },
+      "expected_fields": {
+        "status": "completed",
+        "executed_steps": 2
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A10",
+    "path": "03_Advanced/A10_Graph_Serving",
+    "level": "Advanced",
+    "title": "An exportable graph",
+    "description": "Invoke a graph exported for local HTTP serving and a future managed deployment workflow.",
+    "concept": "graph exports and functional HTTP validation",
+    "tradeoff": "Why does a manifest or a listening port not establish a working managed deployment?",
+    "example": {
+      "input": {
+        "request": "hello"
+      },
+      "expected_fields": {
+        "answer": "Graph response: hello"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A11",
+    "path": "03_Advanced/A11_Signed_Identity",
+    "level": "Advanced",
+    "title": "Authenticate before authorizing",
+    "description": "Verify a signed token and enforce tenant/role policy before executing a graph node.",
+    "concept": "authentication versus authorization",
+    "tradeoff": "How can a valid identity still lack permission for a resource?",
+    "example": {
+      "input": {
+        "role": "viewer",
+        "operation": "read",
+        "resource_tenant": "team-a"
+      },
+      "expected_fields": {
+        "authorized": true
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A12",
+    "path": "03_Advanced/A12_Tenant_Boundaries",
+    "level": "Advanced",
+    "title": "Filter before exposing data",
+    "description": "Select authorized tenant records before retrieval and ensure foreign records never reach a graph node.",
+    "concept": "pre-execution tenant filtering",
+    "tradeoff": "Why is filtering model output too late if unauthorized data was already sent to the model?",
+    "example": {
+      "input": {
+        "tenant": "team-a",
+        "records": [
+          {
+            "tenant": "team-a",
+            "text": "allowed"
+          },
+          {
+            "tenant": "team-b",
+            "text": "secret"
+          }
+        ]
+      },
+      "expected_fields": {
+        "documents": [
+          "allowed"
+        ],
+        "answer": "allowed"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A13",
+    "path": "03_Advanced/A13_Trace_Propagation",
+    "level": "Advanced",
+    "title": "Follow execution across spans",
+    "description": "Attach a local RunTree hierarchy to a graph and optionally create/read back a redacted LangSmith run.",
+    "concept": "RunTree hierarchy and trace privacy",
+    "tradeoff": "Why does a local trace ID not prove that a cloud run was received?",
+    "example": {
+      "input": {
+        "text": " one   two "
+      },
+      "expected_fields": {
+        "answer": "ONE TWO",
+        "spans": 2,
+        "cloud_exported": false
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": true
+  },
+  {
+    "code": "A14",
+    "path": "03_Advanced/A14_Cost_Budgets",
+    "level": "Advanced",
+    "title": "Stop before spending the budget",
+    "description": "Account for declared per-step costs and terminate before a planned step would exceed the cap.",
+    "concept": "pre-step budget enforcement",
+    "tradeoff": "How would you reconcile estimated cost with actual billed token usage?",
+    "example": {
+      "input": {
+        "step_costs": [
+          0.01,
+          0.02,
+          0.04
+        ],
+        "budget": 0.04
+      },
+      "expected_fields": {
+        "spent": 0.03,
+        "cursor": 2,
+        "status": "budget_blocked"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A15",
+    "path": "03_Advanced/A15_Streaming_Failures",
+    "level": "Advanced",
+    "title": "Preserve partial evidence on failure",
+    "description": "Capture successful stream updates before a later node fails, without returning a fabricated final answer.",
+    "concept": "partial stream evidence and explicit failure",
+    "tradeoff": "How should a client distinguish partial updates from a completed response?",
+    "example": {
+      "input": {
+        "fail": true,
+        "value": "one"
+      },
+      "expected_fields": {
+        "status": "failed",
+        "events": [
+          {
+            "prepare": {
+              "prepared": "ONE"
+            }
+          }
+        ]
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A16",
+    "path": "03_Advanced/A16_Functional_API",
+    "level": "Advanced",
+    "title": "A functional workflow",
+    "description": "Use LangGraph entrypoint and task decorators to express a checkpoint-capable functional workflow.",
+    "concept": "functional entrypoint and task boundaries",
+    "tradeoff": "When is a functional API clearer than an explicitly declared StateGraph?",
+    "example": {
+      "input": {
+        "value": 4
+      },
+      "expected_fields": {
+        "result": 9
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A17",
+    "path": "03_Advanced/A17_Specialist_Subgraphs",
+    "level": "Advanced",
+    "title": "Reusable specialist graphs",
+    "description": "Compose separate analysis and review subgraphs, then synthesize their state outputs in a parent graph.",
+    "concept": "specialist subgraph contracts",
+    "tradeoff": "What coupling appears when all specialist graphs share one large state schema?",
+    "example": {
+      "input": {
+        "document": "one two"
+      },
+      "expected_fields": {
+        "analysis": "Words: 2"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A18",
+    "path": "03_Advanced/A18_Artifact_Integrity",
+    "level": "Advanced",
+    "title": "Verify what you saved",
+    "description": "Write an artifact through a graph node, record its SHA-256 digest, and verify the bytes after reopening.",
+    "concept": "content hashes and artifact provenance",
+    "tradeoff": "Why does a matching digest establish byte integrity but not source authenticity or semantic truth?",
+    "example": {
+      "input": {
+        "content": "one"
+      },
+      "expected_fields": {
+        "verified": true
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A19",
+    "path": "03_Advanced/A19_Release_Gates",
+    "level": "Advanced",
+    "title": "Evaluate before release",
+    "description": "Use a labeled dataset and an explicit quality threshold to gate a local candidate release.",
+    "concept": "dataset-driven release gates",
+    "tradeoff": "Why must a release gate account for dataset coverage as well as an aggregate pass rate?",
+    "example": {
+      "input": {
+        "cases": [
+          {
+            "input": "a",
+            "reference": "A"
+          }
+        ],
+        "threshold": 1.0
+      },
+      "expected_fields": {
+        "score": 1.0,
+        "released": true
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "A20",
+    "path": "03_Advanced/A20_Workflow_Observability",
+    "level": "Advanced",
+    "title": "Measure every stage",
+    "description": "Instrument a graph with stage events, errors, and wall-clock durations without logging input content.",
+    "concept": "node-level observability and privacy",
+    "tradeoff": "Why should monitoring distinguish the primary failure, fallback behavior, and final user-visible outcome?",
+    "example": {
+      "input": {
+        "text": "one",
+        "inject_failure": false
+      },
+      "expected_fields": {
+        "status": "success",
+        "answer": "ONE"
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "C01",
+    "path": "04_Capstones/C01_Support_Review",
+    "level": "Capstone",
+    "title": "Support with a review boundary",
+    "description": "Route support requests, pause financial work for approval, and keep a durable thread history.",
+    "concept": "durable support routing and review",
+    "tradeoff": "What additional identity and payment-system controls are required before any real financial action?",
+    "example": {
+      "input": {
+        "thread": "a",
+        "request": "refund please",
+        "action": "submit"
+      },
+      "expected_fields": {
+        "route": "review",
+        "pending": true,
+        "financial_transaction_executed": false
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "C02",
+    "path": "04_Capstones/C02_Document_Review",
+    "level": "Capstone",
+    "title": "Evidence before publishing",
+    "description": "Retrieve a supplied document collection, draft a cited extract, and apply a coverage gate before recording publication eligibility.",
+    "concept": "retrieval provenance and publication gating",
+    "tradeoff": "Why does meeting a source-count threshold not prove that a claim is supported?",
+    "example": {
+      "input": {
+        "question": "tools",
+        "documents": [
+          "Agents use tools."
+        ],
+        "minimum_sources": 1
+      },
+      "expected_fields": {
+        "eligible": true
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "C03",
+    "path": "04_Capstones/C03_Research_Team",
+    "level": "Capstone",
+    "title": "A research and critique team",
+    "description": "Run separate evidence and critique branches, join their findings, and preserve uncertainty in the final brief.",
+    "concept": "parallel specialist evidence and critique",
+    "tradeoff": "Why should the synthesizer preserve the critic’s uncertainty rather than smoothing it away?",
+    "example": {
+      "input": {
+        "question": "tools",
+        "documents": [
+          "Agents use tools."
+        ]
+      },
+      "expected_fields": {
+        "specialists": 2
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "C04",
+    "path": "04_Capstones/C04_Batch_Orchestrator",
+    "level": "Capstone",
+    "title": "A recoverable batch pipeline",
+    "description": "Validate a batch, transform each item through Send, and persist a content-addressed result for replay-safe reuse.",
+    "concept": "dynamic batch work and idempotent results",
+    "tradeoff": "How would you coordinate two workers racing to create the same job ID?",
+    "example": {
+      "input": {
+        "job": "a",
+        "values": [
+          "one",
+          "two"
+        ]
+      },
+      "expected_fields": {
+        "answer": [
+          "ONE",
+          "TWO"
+        ],
+        "reused": false
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  },
+  {
+    "code": "C05",
+    "path": "04_Capstones/C05_Engineering_Platform",
+    "level": "Capstone",
+    "title": "An observable release workflow",
+    "description": "Combine graph execution, labeled evaluation, a release gate, and a durable decision ledger.",
+    "concept": "end-to-end evaluation and release observability",
+    "tradeoff": "How would you expand this gate to cover quality, safety, latency, and deployment rollback separately?",
+    "example": {
+      "input": {
+        "cases": [
+          {
+            "input": "a",
+            "reference": "A"
+          }
+        ],
+        "threshold": 1.0
+      },
+      "expected_fields": {
+        "score": 1.0,
+        "released": true,
+        "events": [
+          "evaluated",
+          "gated"
+        ]
+      }
+    },
+    "status": "local_tests_passed",
+    "cloud_mode": false
+  }
+]

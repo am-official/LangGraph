@@ -1,0 +1,46 @@
+[
+  {
+    "input": {
+      "job": "a",
+      "values": [
+        "one",
+        "two"
+      ]
+    },
+    "expected_fields": {
+      "answer": [
+        "ONE",
+        "TWO"
+      ],
+      "reused": false
+    }
+  },
+  {
+    "input": {
+      "job": "b",
+      "values": [
+        "solo"
+      ]
+    },
+    "expected_fields": {
+      "answer": [
+        "SOLO"
+      ]
+    }
+  },
+  {
+    "input": {
+      "job": "c",
+      "values": [
+        "a",
+        "a"
+      ]
+    },
+    "expected_fields": {
+      "answer": [
+        "A",
+        "A"
+      ]
+    }
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "input": {
+      "value": "hello"
+    },
+    "expected_fields": {
+      "answer": "HELLO",
+      "node_calls": 1,
+      "same_output": true
+    }
+  },
+  {
+    "input": {
+      "value": "cache"
+    },
+    "expected_fields": {
+      "node_calls": 1
+    }
+  },
+  {
+    "input": {
+      "value": "state"
+    },
+    "expected_fields": {
+      "answer": "STATE"
+    }
+  }
+]

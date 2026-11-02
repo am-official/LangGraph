@@ -1,0 +1,31 @@
+[
+  {
+    "input": {
+      "text": "one",
+      "inject_failure": false
+    },
+    "expected_fields": {
+      "status": "success",
+      "answer": "ONE"
+    }
+  },
+  {
+    "input": {
+      "text": "two",
+      "inject_failure": true
+    },
+    "expected_fields": {
+      "status": "error",
+      "answer": null
+    }
+  },
+  {
+    "input": {
+      "text": "three",
+      "inject_failure": false
+    },
+    "expected_fields": {
+      "sensitive_input_logged": false
+    }
+  }
+]

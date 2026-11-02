@@ -1,0 +1,30 @@
+[
+  {
+    "input": {
+      "thread": "a",
+      "initial": 4
+    },
+    "expected_fields": {
+      "count": 5,
+      "reopened_count": 5
+    }
+  },
+  {
+    "input": {
+      "thread": "b",
+      "initial": 0
+    },
+    "expected_fields": {
+      "reopened_count": 1
+    }
+  },
+  {
+    "input": {
+      "thread": "c",
+      "initial": 10
+    },
+    "expected_fields": {
+      "reopened_count": 11
+    }
+  }
+]

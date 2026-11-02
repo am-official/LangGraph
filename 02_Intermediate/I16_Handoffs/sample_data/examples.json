@@ -1,0 +1,26 @@
+[
+  {
+    "input": {
+      "request": "refund please"
+    },
+    "expected_fields": {
+      "specialist": "billing"
+    }
+  },
+  {
+    "input": {
+      "request": "app crashed"
+    },
+    "expected_fields": {
+      "specialist": "technical"
+    }
+  },
+  {
+    "input": {
+      "request": "tool error"
+    },
+    "expected_fields": {
+      "reason": "Deterministic request category"
+    }
+  }
+]

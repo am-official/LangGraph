@@ -1,0 +1,26 @@
+[
+  {
+    "input": {
+      "name": "Ada"
+    },
+    "expected_fields": {
+      "answer": "Hello, Ada!"
+    }
+  },
+  {
+    "input": {
+      "name": "Lin"
+    },
+    "expected_fields": {
+      "answer": "Hello, Lin!"
+    }
+  },
+  {
+    "input": {
+      "name": " Sam "
+    },
+    "expected_fields": {
+      "answer": "Hello, Sam!"
+    }
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "input": {
+      "value": 3
+    },
+    "expected_fields": {
+      "snapshots": [
+        {
+          "value": 3
+        },
+        {
+          "value": 6
+        },
+        {
+          "value": 7
+        }
+      ],
+      "snapshot_count": 3
+    }
+  },
+  {
+    "input": {
+      "value": 0
+    },
+    "expected_fields": {
+      "final_value": 1
+    }
+  },
+  {
+    "input": {
+      "value": 10
+    },
+    "expected_fields": {
+      "final_value": 21
+    }
+  }
+]

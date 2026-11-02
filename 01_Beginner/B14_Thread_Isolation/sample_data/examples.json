@@ -1,0 +1,32 @@
+[
+  {
+    "input": {
+      "first": 2,
+      "second": 8
+    },
+    "expected_fields": {
+      "first": 3,
+      "second": 9
+    }
+  },
+  {
+    "input": {
+      "first": 0,
+      "second": 0
+    },
+    "expected_fields": {
+      "first": 1,
+      "second": 1
+    }
+  },
+  {
+    "input": {
+      "first": 9,
+      "second": 1
+    },
+    "expected_fields": {
+      "first": 10,
+      "second": 2
+    }
+  }
+]

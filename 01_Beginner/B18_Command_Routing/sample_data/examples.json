@@ -1,0 +1,26 @@
+[
+  {
+    "input": {
+      "message": "hello"
+    },
+    "expected_fields": {
+      "route": "short"
+    }
+  },
+  {
+    "input": {
+      "message": "This request has more than twenty characters."
+    },
+    "expected_fields": {
+      "route": "long"
+    }
+  },
+  {
+    "input": {
+      "message": "12345678901234567890"
+    },
+    "expected_fields": {
+      "route": "short"
+    }
+  }
+]

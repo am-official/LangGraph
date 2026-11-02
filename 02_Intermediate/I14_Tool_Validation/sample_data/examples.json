@@ -1,0 +1,30 @@
+[
+  {
+    "input": {
+      "tool_name": "count_words",
+      "content": "a b"
+    },
+    "expected_fields": {
+      "word_count": 2,
+      "validated": true
+    }
+  },
+  {
+    "input": {
+      "tool_name": "count_words",
+      "content": "a"
+    },
+    "expected_fields": {
+      "tool_call_id": "validated-1"
+    }
+  },
+  {
+    "input": {
+      "tool_name": "count_words",
+      "content": "a b c"
+    },
+    "expected_fields": {
+      "word_count": 3
+    }
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "input": {
+      "value": 4
+    },
+    "expected_fields": {
+      "result": 9
+    }
+  },
+  {
+    "input": {
+      "value": 0
+    },
+    "expected_fields": {
+      "result": 1
+    }
+  },
+  {
+    "input": {
+      "value": 10
+    },
+    "expected_fields": {
+      "result": 21
+    }
+  }
+]

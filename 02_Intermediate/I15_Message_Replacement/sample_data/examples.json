@@ -1,0 +1,34 @@
+[
+  {
+    "input": {
+      "original": "draft",
+      "replacement": "final"
+    },
+    "expected_fields": {
+      "revised_count": 2,
+      "replaced_content": "final",
+      "remaining_ids": [
+        "reply"
+      ],
+      "remaining_count": 1
+    }
+  },
+  {
+    "input": {
+      "original": "a",
+      "replacement": "b"
+    },
+    "expected_fields": {
+      "replaced_content": "b"
+    }
+  },
+  {
+    "input": {
+      "original": "old",
+      "replacement": "new"
+    },
+    "expected_fields": {
+      "remaining_count": 1
+    }
+  }
+]

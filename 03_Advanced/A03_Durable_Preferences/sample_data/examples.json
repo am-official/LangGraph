@@ -1,0 +1,37 @@
+[
+  {
+    "input": {
+      "tenant": "a",
+      "user": "u",
+      "action": "save",
+      "preference": "brief"
+    },
+    "expected_fields": {
+      "stored": "brief",
+      "found": true
+    }
+  },
+  {
+    "input": {
+      "tenant": "b",
+      "user": "u",
+      "action": "load",
+      "preference": "unused"
+    },
+    "expected_fields": {
+      "stored": null,
+      "found": false
+    }
+  },
+  {
+    "input": {
+      "tenant": "c",
+      "user": "v",
+      "action": "save",
+      "preference": "detail"
+    },
+    "expected_fields": {
+      "stored": "detail"
+    }
+  }
+]

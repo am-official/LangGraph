@@ -1,0 +1,54 @@
+[
+  {
+    "input": {
+      "cases": [
+        {
+          "input": "a",
+          "reference": "A"
+        }
+      ],
+      "threshold": 1.0
+    },
+    "expected_fields": {
+      "score": 1.0,
+      "released": true,
+      "events": [
+        "evaluated",
+        "gated"
+      ]
+    }
+  },
+  {
+    "input": {
+      "cases": [
+        {
+          "input": "a",
+          "reference": "wrong"
+        }
+      ],
+      "threshold": 0.9
+    },
+    "expected_fields": {
+      "released": false
+    }
+  },
+  {
+    "input": {
+      "cases": [
+        {
+          "input": "a",
+          "reference": "A"
+        },
+        {
+          "input": "b",
+          "reference": "wrong"
+        }
+      ],
+      "threshold": 0.9
+    },
+    "expected_fields": {
+      "score": 0.5,
+      "released": false
+    }
+  }
+]

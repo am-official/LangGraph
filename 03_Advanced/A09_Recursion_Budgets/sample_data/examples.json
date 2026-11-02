@@ -1,0 +1,30 @@
+[
+  {
+    "input": {
+      "target": 2,
+      "budget": 10
+    },
+    "expected_fields": {
+      "status": "completed",
+      "executed_steps": 2
+    }
+  },
+  {
+    "input": {
+      "target": 10,
+      "budget": 3
+    },
+    "expected_fields": {
+      "status": "budget_exhausted"
+    }
+  },
+  {
+    "input": {
+      "target": 1,
+      "budget": 5
+    },
+    "expected_fields": {
+      "status": "completed"
+    }
+  }
+]

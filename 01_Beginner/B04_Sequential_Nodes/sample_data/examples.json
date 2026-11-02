@@ -1,0 +1,30 @@
+[
+  {
+    "input": {
+      "document": "one two"
+    },
+    "expected_fields": {
+      "words": 2,
+      "tokens": [
+        "one",
+        "two"
+      ]
+    }
+  },
+  {
+    "input": {
+      "document": " one   two "
+    },
+    "expected_fields": {
+      "normalized": "one two"
+    }
+  },
+  {
+    "input": {
+      "document": "solo"
+    },
+    "expected_fields": {
+      "words": 1
+    }
+  }
+]

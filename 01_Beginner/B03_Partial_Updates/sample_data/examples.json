@@ -1,0 +1,31 @@
+[
+  {
+    "input": {
+      "title": "note",
+      "owner": "Ada"
+    },
+    "expected_fields": {
+      "normalized": "NOTE",
+      "owner": "Ada"
+    }
+  },
+  {
+    "input": {
+      "title": "state",
+      "owner": "Lin"
+    },
+    "expected_fields": {
+      "normalized": "STATE"
+    }
+  },
+  {
+    "input": {
+      "title": " tools ",
+      "owner": "Sam"
+    },
+    "expected_fields": {
+      "title": "tools",
+      "owner": "Sam"
+    }
+  }
+]

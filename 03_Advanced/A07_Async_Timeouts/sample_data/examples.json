@@ -1,0 +1,29 @@
+[
+  {
+    "input": {
+      "delay_ms": 0,
+      "timeout_ms": 50
+    },
+    "expected_fields": {
+      "status": "success"
+    }
+  },
+  {
+    "input": {
+      "delay_ms": 30,
+      "timeout_ms": 2
+    },
+    "expected_fields": {
+      "status": "timeout"
+    }
+  },
+  {
+    "input": {
+      "delay_ms": 0,
+      "timeout_ms": 20
+    },
+    "expected_fields": {
+      "answer": "Operation completed."
+    }
+  }
+]

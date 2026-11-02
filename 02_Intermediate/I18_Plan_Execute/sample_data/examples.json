@@ -1,0 +1,43 @@
+[
+  {
+    "input": {
+      "value": "abc",
+      "plan": [
+        "upper",
+        "reverse"
+      ]
+    },
+    "expected_fields": {
+      "value": "CBA",
+      "cursor": 2,
+      "executed": [
+        "upper",
+        "reverse"
+      ]
+    }
+  },
+  {
+    "input": {
+      "value": "one",
+      "plan": [
+        "upper"
+      ]
+    },
+    "expected_fields": {
+      "value": "ONE"
+    }
+  },
+  {
+    "input": {
+      "value": "abc",
+      "plan": [
+        "reverse",
+        "reverse"
+      ]
+    },
+    "expected_fields": {
+      "value": "abc",
+      "cursor": 2
+    }
+  }
+]

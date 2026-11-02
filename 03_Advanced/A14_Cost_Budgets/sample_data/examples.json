@@ -1,0 +1,42 @@
+[
+  {
+    "input": {
+      "step_costs": [
+        0.01,
+        0.02,
+        0.04
+      ],
+      "budget": 0.04
+    },
+    "expected_fields": {
+      "spent": 0.03,
+      "cursor": 2,
+      "status": "budget_blocked"
+    }
+  },
+  {
+    "input": {
+      "step_costs": [
+        0.01,
+        0.02
+      ],
+      "budget": 0.03
+    },
+    "expected_fields": {
+      "status": "complete",
+      "spent": 0.03
+    }
+  },
+  {
+    "input": {
+      "step_costs": [
+        0.01
+      ],
+      "budget": 0
+    },
+    "expected_fields": {
+      "cursor": 0,
+      "spent": 0.0
+    }
+  }
+]

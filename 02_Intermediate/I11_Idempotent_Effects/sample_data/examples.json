@@ -1,0 +1,30 @@
+[
+  {
+    "input": {
+      "operation": "a",
+      "value": "one"
+    },
+    "expected_fields": {
+      "same_receipt": true,
+      "second_created": false
+    }
+  },
+  {
+    "input": {
+      "operation": "b",
+      "value": "two"
+    },
+    "expected_fields": {
+      "same_receipt": true
+    }
+  },
+  {
+    "input": {
+      "operation": "c",
+      "value": "three"
+    },
+    "expected_fields": {
+      "second_created": false
+    }
+  }
+]

@@ -1,0 +1,49 @@
+[
+  {
+    "input": {
+      "values": [
+        1,
+        2,
+        3
+      ]
+    },
+    "expected_fields": {
+      "total": 14,
+      "squares": [
+        {
+          "index": 0,
+          "square": 1
+        },
+        {
+          "index": 1,
+          "square": 4
+        },
+        {
+          "index": 2,
+          "square": 9
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "values": [
+        -2,
+        0
+      ]
+    },
+    "expected_fields": {
+      "total": 4
+    }
+  },
+  {
+    "input": {
+      "values": [
+        5
+      ]
+    },
+    "expected_fields": {
+      "total": 25
+    }
+  }
+]

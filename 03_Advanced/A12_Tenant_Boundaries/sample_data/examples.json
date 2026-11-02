@@ -1,0 +1,51 @@
+[
+  {
+    "input": {
+      "tenant": "team-a",
+      "records": [
+        {
+          "tenant": "team-a",
+          "text": "allowed"
+        },
+        {
+          "tenant": "team-b",
+          "text": "secret"
+        }
+      ]
+    },
+    "expected_fields": {
+      "documents": [
+        "allowed"
+      ],
+      "answer": "allowed"
+    }
+  },
+  {
+    "input": {
+      "tenant": "team-b",
+      "records": [
+        {
+          "tenant": "team-a",
+          "text": "secret"
+        }
+      ]
+    },
+    "expected_fields": {
+      "documents": []
+    }
+  },
+  {
+    "input": {
+      "tenant": "team-b",
+      "records": [
+        {
+          "tenant": "team-b",
+          "text": "own"
+        }
+      ]
+    },
+    "expected_fields": {
+      "answer": "own"
+    }
+  }
+]

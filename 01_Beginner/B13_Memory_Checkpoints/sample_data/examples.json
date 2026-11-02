@@ -1,0 +1,28 @@
+[
+  {
+    "input": {
+      "initial": 2
+    },
+    "expected_fields": {
+      "count": 3,
+      "saved_count": 3,
+      "has_checkpoint": true
+    }
+  },
+  {
+    "input": {
+      "initial": 0
+    },
+    "expected_fields": {
+      "count": 1
+    }
+  },
+  {
+    "input": {
+      "initial": 8
+    },
+    "expected_fields": {
+      "saved_count": 9
+    }
+  }
+]

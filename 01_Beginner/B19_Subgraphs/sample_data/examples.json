@@ -1,0 +1,27 @@
+[
+  {
+    "input": {
+      "text": " one   two "
+    },
+    "expected_fields": {
+      "normalized": "one two",
+      "answer": "ONE TWO"
+    }
+  },
+  {
+    "input": {
+      "text": "tools"
+    },
+    "expected_fields": {
+      "answer": "TOOLS"
+    }
+  },
+  {
+    "input": {
+      "text": "state graph"
+    },
+    "expected_fields": {
+      "answer": "STATE GRAPH"
+    }
+  }
+]

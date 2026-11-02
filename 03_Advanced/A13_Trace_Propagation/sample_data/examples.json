@@ -1,0 +1,28 @@
+[
+  {
+    "input": {
+      "text": " one   two "
+    },
+    "expected_fields": {
+      "answer": "ONE TWO",
+      "spans": 2,
+      "cloud_exported": false
+    }
+  },
+  {
+    "input": {
+      "text": "state"
+    },
+    "expected_fields": {
+      "answer": "STATE"
+    }
+  },
+  {
+    "input": {
+      "text": "tools"
+    },
+    "expected_fields": {
+      "spans": 2
+    }
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "input": {
+      "request": "Refund please"
+    },
+    "expected_fields": {
+      "route": "billing"
+    }
+  },
+  {
+    "input": {
+      "request": "App crashed"
+    },
+    "expected_fields": {
+      "route": "technical"
+    }
+  },
+  {
+    "input": {
+      "request": "Missing invoice"
+    },
+    "expected_fields": {
+      "route": "billing"
+    }
+  }
+]

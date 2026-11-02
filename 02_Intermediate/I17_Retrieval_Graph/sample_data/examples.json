@@ -1,0 +1,42 @@
+[
+  {
+    "input": {
+      "question": "tools",
+      "documents": [
+        "Agents use tools."
+      ]
+    },
+    "expected_fields": {
+      "sources": [
+        "doc-1"
+      ],
+      "answer": "[doc-1] Agents use tools."
+    }
+  },
+  {
+    "input": {
+      "question": "!!!",
+      "documents": [
+        "Agents use tools."
+      ]
+    },
+    "expected_fields": {
+      "sources": [],
+      "answer": "No matching evidence. I do not know."
+    }
+  },
+  {
+    "input": {
+      "question": "state",
+      "documents": [
+        "Tools execute.",
+        "Graphs preserve state."
+      ]
+    },
+    "expected_fields": {
+      "sources": [
+        "doc-2"
+      ]
+    }
+  }
+]

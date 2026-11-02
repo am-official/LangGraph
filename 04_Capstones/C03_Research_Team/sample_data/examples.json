@@ -1,0 +1,35 @@
+[
+  {
+    "input": {
+      "question": "tools",
+      "documents": [
+        "Agents use tools."
+      ]
+    },
+    "expected_fields": {
+      "specialists": 2
+    }
+  },
+  {
+    "input": {
+      "question": "!!!",
+      "documents": [
+        "Agents use tools."
+      ]
+    },
+    "expected_fields": {
+      "specialists": 2
+    }
+  },
+  {
+    "input": {
+      "question": "state",
+      "documents": [
+        "Graphs preserve state."
+      ]
+    },
+    "expected_fields": {
+      "specialists": 2
+    }
+  }
+]

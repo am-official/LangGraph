@@ -1,0 +1,30 @@
+[
+  {
+    "input": {
+      "failures": 0,
+      "value": "one"
+    },
+    "expected_fields": {
+      "attempts": 1,
+      "answer": "ONE"
+    }
+  },
+  {
+    "input": {
+      "failures": 1,
+      "value": "two"
+    },
+    "expected_fields": {
+      "attempts": 2
+    }
+  },
+  {
+    "input": {
+      "failures": 2,
+      "value": "three"
+    },
+    "expected_fields": {
+      "attempts": 3
+    }
+  }
+]

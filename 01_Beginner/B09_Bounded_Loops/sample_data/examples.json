@@ -1,0 +1,26 @@
+[
+  {
+    "input": {
+      "target": 1
+    },
+    "expected_fields": {
+      "count": 1
+    }
+  },
+  {
+    "input": {
+      "target": 3
+    },
+    "expected_fields": {
+      "count": 3
+    }
+  },
+  {
+    "input": {
+      "target": 20
+    },
+    "expected_fields": {
+      "count": 20
+    }
+  }
+]

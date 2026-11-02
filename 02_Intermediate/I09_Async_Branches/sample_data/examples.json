@@ -1,0 +1,35 @@
+[
+  {
+    "input": {
+      "text": "abc"
+    },
+    "expected_fields": {
+      "results": [
+        "reverse:cba",
+        "upper:ABC"
+      ]
+    }
+  },
+  {
+    "input": {
+      "text": "one"
+    },
+    "expected_fields": {
+      "results": [
+        "reverse:eno",
+        "upper:ONE"
+      ]
+    }
+  },
+  {
+    "input": {
+      "text": "ab cd"
+    },
+    "expected_fields": {
+      "results": [
+        "reverse:dc ba",
+        "upper:AB CD"
+      ]
+    }
+  }
+]

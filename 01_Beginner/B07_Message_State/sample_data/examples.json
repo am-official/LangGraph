@@ -1,0 +1,37 @@
+[
+  {
+    "input": {
+      "message": "hello"
+    },
+    "expected_fields": {
+      "count": 2
+    }
+  },
+  {
+    "input": {
+      "message": "tools?"
+    },
+    "expected_fields": {
+      "messages": [
+        {
+          "id": "question",
+          "role": "human",
+          "content": "tools?"
+        },
+        {
+          "id": "reply",
+          "role": "ai",
+          "content": "Local response: tools?"
+        }
+      ]
+    }
+  },
+  {
+    "input": {
+      "message": "state?"
+    },
+    "expected_fields": {
+      "count": 2
+    }
+  }
+]

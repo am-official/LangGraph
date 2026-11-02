@@ -1,0 +1,35 @@
+[
+  {
+    "input": {
+      "thread": "a",
+      "request": "refund please",
+      "action": "submit"
+    },
+    "expected_fields": {
+      "route": "review",
+      "pending": true,
+      "financial_transaction_executed": false
+    }
+  },
+  {
+    "input": {
+      "thread": "b",
+      "request": "app crashes",
+      "action": "submit"
+    },
+    "expected_fields": {
+      "route": "technical",
+      "pending": false
+    }
+  },
+  {
+    "input": {
+      "thread": "c",
+      "request": "refund order",
+      "action": "submit"
+    },
+    "expected_fields": {
+      "approved": false
+    }
+  }
+]

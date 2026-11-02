@@ -1,0 +1,26 @@
+[
+  {
+    "input": {
+      "request": "hello"
+    },
+    "expected_fields": {
+      "answer": "Graph response: hello"
+    }
+  },
+  {
+    "input": {
+      "request": "state"
+    },
+    "expected_fields": {
+      "answer": "Graph response: state"
+    }
+  },
+  {
+    "input": {
+      "request": "tools"
+    },
+    "expected_fields": {
+      "answer": "Graph response: tools"
+    }
+  }
+]

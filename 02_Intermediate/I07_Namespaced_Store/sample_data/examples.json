@@ -1,0 +1,34 @@
+[
+  {
+    "input": {
+      "tenant": "a",
+      "user": "ada",
+      "preference": "brief"
+    },
+    "expected_fields": {
+      "value": "brief",
+      "foreign_namespace_missing": true,
+      "items": 1
+    }
+  },
+  {
+    "input": {
+      "tenant": "b",
+      "user": "lin",
+      "preference": "detailed"
+    },
+    "expected_fields": {
+      "value": "detailed"
+    }
+  },
+  {
+    "input": {
+      "tenant": "c",
+      "user": "sam",
+      "preference": "examples"
+    },
+    "expected_fields": {
+      "items": 1
+    }
+  }
+]

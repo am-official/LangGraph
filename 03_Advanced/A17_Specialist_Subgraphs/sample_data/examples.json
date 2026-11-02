@@ -1,0 +1,26 @@
+[
+  {
+    "input": {
+      "document": "one two"
+    },
+    "expected_fields": {
+      "analysis": "Words: 2"
+    }
+  },
+  {
+    "input": {
+      "document": "one"
+    },
+    "expected_fields": {
+      "analysis": "Words: 1"
+    }
+  },
+  {
+    "input": {
+      "document": "a b c"
+    },
+    "expected_fields": {
+      "analysis": "Words: 3"
+    }
+  }
+]

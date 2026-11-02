@@ -1,0 +1,39 @@
+[
+  {
+    "input": {
+      "question": "tools",
+      "documents": [
+        "Agents use tools."
+      ],
+      "minimum_sources": 1
+    },
+    "expected_fields": {
+      "eligible": true
+    }
+  },
+  {
+    "input": {
+      "question": "tools",
+      "documents": [
+        "Agents use tools."
+      ],
+      "minimum_sources": 2
+    },
+    "expected_fields": {
+      "eligible": false
+    }
+  },
+  {
+    "input": {
+      "question": "!!!",
+      "documents": [
+        "Agents use tools."
+      ],
+      "minimum_sources": 1
+    },
+    "expected_fields": {
+      "eligible": false,
+      "answer": "No evidence found."
+    }
+  }
+]

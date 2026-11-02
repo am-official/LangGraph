@@ -1,0 +1,32 @@
+[
+  {
+    "input": {
+      "role": "viewer",
+      "operation": "read",
+      "resource_tenant": "team-a"
+    },
+    "expected_fields": {
+      "authorized": true
+    }
+  },
+  {
+    "input": {
+      "role": "viewer",
+      "operation": "write",
+      "resource_tenant": "team-a"
+    },
+    "expected_fields": {
+      "authorized": false
+    }
+  },
+  {
+    "input": {
+      "role": "editor",
+      "operation": "write",
+      "resource_tenant": "team-b"
+    },
+    "expected_fields": {
+      "authorized": false
+    }
+  }
+]

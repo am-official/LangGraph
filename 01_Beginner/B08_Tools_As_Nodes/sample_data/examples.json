@@ -1,0 +1,26 @@
+[
+  {
+    "input": {
+      "text": "one two"
+    },
+    "expected_fields": {
+      "words": 2
+    }
+  },
+  {
+    "input": {
+      "text": "single"
+    },
+    "expected_fields": {
+      "words": 1
+    }
+  },
+  {
+    "input": {
+      "text": "a b c"
+    },
+    "expected_fields": {
+      "words": 3
+    }
+  }
+]

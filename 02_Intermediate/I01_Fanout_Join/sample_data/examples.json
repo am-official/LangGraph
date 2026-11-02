@@ -1,0 +1,27 @@
+[
+  {
+    "input": {
+      "document": "one two"
+    },
+    "expected_fields": {
+      "answer": "characters=7, words=2",
+      "branches": 2
+    }
+  },
+  {
+    "input": {
+      "document": "solo"
+    },
+    "expected_fields": {
+      "branches": 2
+    }
+  },
+  {
+    "input": {
+      "document": "a b c"
+    },
+    "expected_fields": {
+      "answer": "characters=5, words=3"
+    }
+  }
+]

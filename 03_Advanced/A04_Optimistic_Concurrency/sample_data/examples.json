@@ -1,0 +1,32 @@
+[
+  {
+    "input": {
+      "key": "a",
+      "value": "first",
+      "expected_version": 0
+    },
+    "expected_fields": {
+      "version": 1
+    }
+  },
+  {
+    "input": {
+      "key": "b",
+      "value": "second",
+      "expected_version": 0
+    },
+    "expected_fields": {
+      "version": 1
+    }
+  },
+  {
+    "input": {
+      "key": "c",
+      "value": "third",
+      "expected_version": 0
+    },
+    "expected_fields": {
+      "version": 1
+    }
+  }
+]

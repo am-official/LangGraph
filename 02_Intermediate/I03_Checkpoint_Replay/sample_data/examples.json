@@ -1,0 +1,29 @@
+[
+  {
+    "input": {
+      "value": 3
+    },
+    "expected_fields": {
+      "original": 7,
+      "checkpoint_value": 6,
+      "replayed": 7
+    }
+  },
+  {
+    "input": {
+      "value": 0
+    },
+    "expected_fields": {
+      "replayed": 1
+    }
+  },
+  {
+    "input": {
+      "value": 8
+    },
+    "expected_fields": {
+      "checkpoint_value": 16,
+      "replayed": 17
+    }
+  }
+]

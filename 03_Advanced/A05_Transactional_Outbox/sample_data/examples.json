@@ -1,0 +1,30 @@
+[
+  {
+    "input": {
+      "operation": "a",
+      "payload": "one"
+    },
+    "expected_fields": {
+      "same_receipt": true,
+      "external_notification_sent": false
+    }
+  },
+  {
+    "input": {
+      "operation": "b",
+      "payload": "two"
+    },
+    "expected_fields": {
+      "delivered_to_local_ledger": true
+    }
+  },
+  {
+    "input": {
+      "operation": "c",
+      "payload": "three"
+    },
+    "expected_fields": {
+      "same_receipt": true
+    }
+  }
+]

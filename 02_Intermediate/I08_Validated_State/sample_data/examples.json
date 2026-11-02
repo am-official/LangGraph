@@ -1,0 +1,29 @@
+[
+  {
+    "input": {
+      "quantity": 3,
+      "unit_price": 2.5
+    },
+    "expected_fields": {
+      "total": 7.5
+    }
+  },
+  {
+    "input": {
+      "quantity": 1,
+      "unit_price": 0
+    },
+    "expected_fields": {
+      "total": 0.0
+    }
+  },
+  {
+    "input": {
+      "quantity": 100,
+      "unit_price": 1
+    },
+    "expected_fields": {
+      "total": 100.0
+    }
+  }
+]

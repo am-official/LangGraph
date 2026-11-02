@@ -1,0 +1,31 @@
+[
+  {
+    "input": {
+      "value": 3,
+      "edited": 20
+    },
+    "expected_fields": {
+      "before_edit": 6,
+      "result": 21,
+      "original_snapshot_unchanged": true
+    }
+  },
+  {
+    "input": {
+      "value": 0,
+      "edited": 0
+    },
+    "expected_fields": {
+      "result": 1
+    }
+  },
+  {
+    "input": {
+      "value": 8,
+      "edited": 4
+    },
+    "expected_fields": {
+      "result": 5
+    }
+  }
+]

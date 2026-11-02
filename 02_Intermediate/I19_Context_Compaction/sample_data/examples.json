@@ -1,0 +1,55 @@
+[
+  {
+    "input": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "hello"
+        }
+      ],
+      "budget": 10
+    },
+    "expected_fields": {
+      "used_characters": 5,
+      "dropped": 0
+    }
+  },
+  {
+    "input": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "xxxxxxxxxxxxxxxxxxxx"
+        }
+      ],
+      "budget": 10
+    },
+    "expected_fields": {
+      "messages": [],
+      "dropped": 1
+    }
+  },
+  {
+    "input": {
+      "messages": [
+        {
+          "role": "assistant",
+          "content": "orphan"
+        },
+        {
+          "role": "user",
+          "content": "hi"
+        }
+      ],
+      "budget": 20
+    },
+    "expected_fields": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "hi"
+        }
+      ]
+    }
+  }
+]

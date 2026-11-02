@@ -1,0 +1,35 @@
+[
+  {
+    "input": {
+      "request": "Publish",
+      "reviewer_role": "viewer",
+      "decision": "approve"
+    },
+    "expected_fields": {
+      "authorized": false,
+      "approved": false,
+      "pending": true
+    }
+  },
+  {
+    "input": {
+      "request": "Publish",
+      "reviewer_role": "reviewer",
+      "decision": "approve"
+    },
+    "expected_fields": {
+      "authorized": true,
+      "approved": true
+    }
+  },
+  {
+    "input": {
+      "request": "Publish",
+      "reviewer_role": "reviewer",
+      "decision": "reject"
+    },
+    "expected_fields": {
+      "approved": false
+    }
+  }
+]

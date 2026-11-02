@@ -1,0 +1,33 @@
+[
+  {
+    "input": {
+      "thread": "a",
+      "action": "submit",
+      "request": "Draft A"
+    },
+    "expected_fields": {
+      "pending": true,
+      "approved": false
+    }
+  },
+  {
+    "input": {
+      "thread": "b",
+      "action": "submit",
+      "request": "Draft B"
+    },
+    "expected_fields": {
+      "request": "Draft B"
+    }
+  },
+  {
+    "input": {
+      "thread": "c",
+      "action": "submit",
+      "request": "Draft C"
+    },
+    "expected_fields": {
+      "external_effects": false
+    }
+  }
+]
