@@ -26,4 +26,4 @@ No paid model request, live LangSmith account write, managed deployment, distrib
 Official documentation hosts were blocked by the environment network policy. APIs were checked using installed signatures/source and executable tests. SDK-internal beta/deprecation warnings remain visible; deprecated query/read application paths were replaced with current v2 examples. Windows/macOS CI is configured but has not run on GitHub yet.
 
 ## Publication
-The two new public repository creations require api.github.com, which is blocked in the running environment. Required network additions are saved in the configuration draft. This record describes local validation and does not claim GitHub publication.
+The owner created the destination repository after the GitHub API creation route was blocked by environment policy. Publication uses the existing Git connection and is tracked by repository commit history. These checks establish local validation, not managed cloud deployment.
